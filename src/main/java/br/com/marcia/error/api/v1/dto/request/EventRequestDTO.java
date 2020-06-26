@@ -1,4 +1,4 @@
-package br.com.marcia.error.api.v1.dto;
+package br.com.marcia.error.api.v1.dto.request;
 
 import br.com.marcia.error.enumeration.LevelEnum;
 import io.swagger.annotations.ApiModelProperty;
@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventSaveDTO {
+public class EventRequestDTO {
 
     @NotNull(message = "The level field is mandatory.")
     @ApiModelProperty(required = true)

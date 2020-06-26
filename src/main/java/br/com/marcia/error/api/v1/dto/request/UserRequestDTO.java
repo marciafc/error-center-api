@@ -1,4 +1,4 @@
-package br.com.marcia.error.api.v1.dto;
+package br.com.marcia.error.api.v1.dto.request;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotEmpty;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class UserRequestDTO {
 
     @NotEmpty(message = "The fullName field is mandatory.")
     @ApiModelProperty(required = true)

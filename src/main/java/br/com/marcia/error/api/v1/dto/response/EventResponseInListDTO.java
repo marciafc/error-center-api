@@ -1,4 +1,4 @@
-package br.com.marcia.error.api.v1.dto;
+package br.com.marcia.error.api.v1.dto.response;
 
 import br.com.marcia.error.enumeration.LevelEnum;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventListDTO {
+public class EventResponseInListDTO {
 
     @ApiModelProperty
     private Long id;
