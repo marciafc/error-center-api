@@ -1,6 +1,7 @@
 package br.com.marcia.error.api.v1.controller;
 
-import br.com.marcia.error.api.v1.dto.UserDTO;
+import br.com.marcia.error.api.v1.dto.request.UserRequestDTO;
+import br.com.marcia.error.api.v1.dto.response.UserResponseDTO;
 import br.com.marcia.error.entity.UserEntity;
 import br.com.marcia.error.service.IUserService;
 import io.swagger.annotations.Api;
@@ -38,11 +39,12 @@ public class UserController {
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Created")
     })
-    public ResponseEntity<UserDTO> create(@Valid @RequestBody UserDTO userDTO) {
-        UserEntity userEntity = modelMapper.map(userDTO, UserEntity.class);
-        userEntity.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        userService.save(userEntity);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<UserResponseDTO> create(@Valid @RequestBody UserRequestDTO userRequestDTO) {
+
+        UserEntity userEntity = modelMapper.map(userRequestDTO, UserEntity.class);
+        userEntity.setPassword(passwordEncoder.encode(userRequestDTO.getPassword()));
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(userService.save(userEntity), UserResponseDTO.class));
     }
 
 }

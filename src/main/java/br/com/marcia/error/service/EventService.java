@@ -46,7 +46,7 @@ public class EventService implements IEventService {
 
     @Override
     public List<EventEntity> findAll(Example<EventEntity> eventEntityExample, Pageable pageable) {
-        return eventRepository.findAll(eventEntityExample);
+        return eventRepository.findAll(eventEntityExample, pageable).getContent();
     }
 
 }
